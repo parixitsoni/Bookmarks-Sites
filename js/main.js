@@ -73,7 +73,7 @@ function fetchBookmarks(){
 
         bookmarksResult.innerHTML += '<div class="card card-body">'+
                                         '<h3>'+name+
-                                        '<a class="btn btn-success m-2" style="float:right" href="+url+" target="_blank">Visit</a>'+
+                                        '<a class="btn btn-success m-2" style="float:right" href="'+addhttp(url)+'" target="_blank">Visit</a>'+
                                         '<a onClick="deleteBookmark(\''+url+'\')" style="float:right" class="btn btn-danger m-2" href="#">Delete</a>'+
                                         '</h3>'+
                                      '</div>';
@@ -95,3 +95,10 @@ function validateForm(siteName,siteUrl){
     }
     return true;
 }
+
+function addhttp(url) {
+    if (!/^(?:f|ht)tps?\:\/\//.test(url)) {
+        url = "http://" + url;
+    }
+    return url;
+  }
